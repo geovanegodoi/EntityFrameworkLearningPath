@@ -1,0 +1,96 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{13514BCE-8E7C-4615-96A1-F3EAB604C04D}</ProjectGuid>
+    <OutputType>Exe</OutputType>
+    <RootNamespace>FluentAPI</RootNamespace>
+    <AssemblyName>FluentAPI</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Context\Configurations\GenreConfiguration.cs" />
+    <Compile Include="Context\Configurations\CourseConfiguration.cs" />
+    <Compile Include="Context\Configurations\VideoConfiguration.cs" />
+    <Compile Include="Context\PlutoContext.cs" />
+    <Compile Include="Domain\Author.cs" />
+    <Compile Include="Domain\Course.cs" />
+    <Compile Include="Domain\Cover.cs" />
+    <Compile Include="Domain\Genre.cs" />
+    <Compile Include="Domain\Tag.cs" />
+    <Compile Include="Domain\Video.cs" />
+    <Compile Include="Enumeration\Enumeration.cs" />
+    <Compile Include="Migrations\201902170059492_InitialModel.cs" />
+    <Compile Include="Migrations\201902170059492_InitialModel.Designer.cs">
+      <DependentUpon>201902170059492_InitialModel.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902171118100_AddVideosAndGenresTables.cs" />
+    <Compile Include="Migrations\201902171118100_AddVideosAndGenresTables.Designer.cs">
+      <DependentUpon>201902171118100_AddVideosAndGenresTables.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201902171126301_AddVideoTagsTable.cs" />
+    <Compile Include="Migrations\201902171126301_AddVideoTagsTable.Designer.cs">
+      <DependentUpon>201902171126301_AddVideoTagsTable.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201902170059492_InitialModel.resx">
+      <DependentUpon>201902170059492_InitialModel.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902171118100_AddVideosAndGenresTables.resx">
+      <DependentUpon>201902171118100_AddVideosAndGenresTables.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201902171126301_AddVideoTagsTable.resx">
+      <DependentUpon>201902171126301_AddVideoTagsTable.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
